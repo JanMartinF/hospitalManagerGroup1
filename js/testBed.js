@@ -1,18 +1,3 @@
-class Rectangle {
-    constructor(height, width) {
-      this.height = height;
-      this.width = width;
-    }
-    get area() {
-        return this.calcArea();
-    }
-    calcArea(){
-        return this.height * this.width
-    }
-  }
-
-var sampleRect = new Rectangle(10,10)
-
 class Bed {
     constructor(patientName = 'defaultPatientName', occupied = false, occupiedForDuration = 7, belongsTo = 'defaultHospital'){
         this.occupied = occupied;
@@ -26,10 +11,10 @@ class Bed {
     }
 }
 class Hospital {
-    constructor(name = 'defaultName', region='defaultRegion', amountBeds = 12, listOfbeds = []){
+    constructor(name = 'defaultName', region='defaultRegion', maxAmountBeds = 12, listOfbeds = []){
         this.name = name;
         this.region = region;
-        this.amountBeds = amountBeds;
+        this.maxAmountBeds = maxAmountBeds;
         this.listOfbeds = listOfbeds;
     }
     get numberOfBeds() {
@@ -39,13 +24,38 @@ class Hospital {
         return this.amountBeds
     }
 }
+
+let amountHospitals = 12
+let amountBeds = 200
+let sampleArray = []
+let superArray = []
+for (let i = 0; i < amountHospitals; i++) {
+    sampleArray = []
+    sampleArray.push('hospitalNbr'+i.toString())
+    sampleArray.push (new Hospital('sampleName','defaultRegion', i, []))
+    superArray.push(sampleArray)
+}
+
+function searchForHospital(searchString){
+    for(let i=0; i < superArray.length; i++){
+        if(superArray[i][0] == searchString){
+            console.log(superArray[i][1])
+            return superArray[i][1]
+        }
+    }
+}
+searchForHospital('hospitalNbr5')
+
 var sampleBed1 = new Bed('testBed1')
 var sampleBed2 = new Bed('testBed2')
 var sampleBed3 = new Bed('testbed3')
 
 var sampleHospital = new Hospital()
 
-// sampleHospital.listOfbeds.push(sampleBed1, sampleBed2, sampleBed3)
 sampleBed1.pushToHospital(sampleHospital)
-console.log(sampleHospital.listOfbeds[0].patientName)
-console.log(sampleHospital.listOfbeds[0].belongsTo.name)
+
+let hosDic = {}
+hosDic["sampleHos1"] = new Hospital()
+console.log('the following might be cool')
+console.log(hosDic.sampleHos1)
+
