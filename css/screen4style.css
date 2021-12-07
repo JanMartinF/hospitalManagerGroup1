@@ -1,0 +1,14 @@
+table{
+    text-align: center;
+    border: 1px solid salmon;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(250, 128, 114, 0.5);
+}
+td{
+    /* border-left: 1px solid salmon;
+    border-right: 1px solid salmon; */
+}
+h2{
+    text-align: center;
+}
