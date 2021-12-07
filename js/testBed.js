@@ -17,40 +17,37 @@ class Hospital {
         this.maxAmountBeds = maxAmountBeds;
         this.listOfbeds = listOfbeds;
     }
-
 }
-
-let amountHospitals = 12
-let amountBeds = 200
-let sampleArray = []
-let superArray = []
-for (let i = 0; i < amountHospitals; i++) {
-    sampleArray = []
-    sampleArray.push('hospitalNbr'+i.toString())
-    sampleArray.push (new Hospital('sampleName','defaultRegion', i, []))
-    superArray.push(sampleArray)
+let neededHospitals = 10
+let hospitalDict = {}
+let hospitalList = []
+for(let i=0; i<neededHospitals; i++ ){
+    tempHospital = new Hospital('sampleName'+i, 'regionNbr'+i, 12, [])
+    hospitalDict["hospital"+i] = tempHospital
+    hospitalList.push(tempHospital)
 }
+console.log(hospitalList.length, "this is the length")
 
-function searchForHospital(searchString){
-    for(let i=0; i < superArray.length; i++){
-        if(superArray[i][0] == searchString){
-            console.log(superArray[i][1])
-            return superArray[i][1]
+
+console.log(hospitalDict)
+function createHospitalTable(listOfHospitals){
+    const table = document.createElement('table');
+    for(let i = 0; i < listOfHospitals.length; i++){
+        console.log('test i', listOfHospitals[i])
+        const tr = table.insertRow();
+        for(let j=0; j<4; j++){
+            console.log('test j')
+            const td = tr.insertCell();
+            td.appendChild(document.createTextNode(`'Cell I${i}/J${j}' ${listOfHospitals[i].name}`));
         }
     }
+
 }
-searchForHospital('hospitalNbr5')
+createHospitalTable(hospitalList)
+let newHospital = new Hospital('First Light Hospital', 'Region1', 16, [])
 
-var sampleBed1 = new Bed('testBed1')
-var sampleBed2 = new Bed('testBed2')
-var sampleBed3 = new Bed('testbed3')
-
-var sampleHospital = new Hospital()
-
-sampleBed1.pushToHospital(sampleHospital)
-
-let hosDic = {}
-hosDic["sampleHos1"] = new Hospital()
-console.log('the following might be cool')
-console.log(hosDic.sampleHos1)
-
+neededBeds = 12
+for(let i=0; i < neededBeds; i++){
+    newHospital.listOfbeds.push(new Bed())
+}
+console.log(newHospital.listOfbeds)
