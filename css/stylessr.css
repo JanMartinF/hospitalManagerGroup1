@@ -1,0 +1,33 @@
+.UB2{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.UB3{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: right;
+    font-size: 30px;
+    padding-right: 0px;
+    
+    
+    
+}
+
+.body1{
+    border:5px solid red;
+    margin-top: 50px;
+    padding-top: 50px;
+}
+
+.box1, .box2, .box3, .box4, .box4, .box5, .box6 {
+    float: left;
+    width: 32%;
+    margin-right: 2%;
+    padding: 20px;
+    background: #eee;
+    box-sizing: border-box;
+}
+
+.box6 {
+    margin-right: 0;
+}
