@@ -1,0 +1,71 @@
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0%;
+    padding: 0.3%;    
+}
+
+#flex_screen_3
+{
+    display: grid;
+    grid-template-areas: 
+    "title title  back date forward"
+    "label1 input1 . . ."
+    "label2 input2 . . ."
+    "label3 input3 . . ."
+    "label4 input4 . . ."
+    "label5 input5 . . ."
+    "label6 input6 . . ."
+    "label7 input7 . . ."
+    "label8 input8 . . ."
+    "label9 input9 . . ."
+    "label10 input10 . . enter_button";
+    grid-template-rows: 10% 1fr;
+    grid-template-columns: 10% 1fr;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    border: 5px solid darkred;
+    background-color: darkseagreen;
+}
+
+#screen_3_title{grid-area: title;}
+
+#back{grid-area: back;align-self: right;}
+
+#date{grid-area: date;}
+
+#forward{grid-area: forward;align-self: left;}
+
+#label_region_1{grid-area: label1;align-self:left;}
+#input_region_1{grid-area: input1;}
+
+#label_region_2{grid-area: label2;align-self:left;}
+#input_region_2{grid-area: input2;}
+
+#label_region_3{grid-area: label3;align-self:left;}
+#input_region_3{grid-area: input3;}
+
+#label_region_4{grid-area: label4;align-self:left;}
+#input_region_4{grid-area: input4;}
+
+#label_region_5{grid-area: label5;align-self:left;}
+#input_region_5{grid-area: input5;}
+
+#label_region_6{grid-area: label6;align-self:left;}
+#input_region_6{grid-area: input6;}
+
+#label_region_7{grid-area: label7;align-self:left;}
+#input_region_7{grid-area: input7;}
+
+#label_region_8{grid-area: label8;align-self:left;}
+#input_region_8{grid-area: input8;}
+
+#label_region_9{grid-area: label9;align-self:left;}
+#input_region_9{grid-area: input9;}
+
+#label_region_10{grid-area: label10;align-self:left;}
+#input_region_10{grid-area: input10;}
+
+#enter_button{grid-area: enter_button;align-self:left;}
