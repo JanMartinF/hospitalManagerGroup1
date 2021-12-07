@@ -20,9 +20,11 @@ html,body
     "label7 input7 . . ."
     "label8 input8 . . ."
     "label9 input9 . . ."
-    "label10 input10 . . enter_button";
-    grid-template-rows: 10% 1fr;
-    grid-template-columns: 10% 1fr;
+
+    "label10 input10 . enter_button .";
+    grid-template-rows: auto;
+    grid-template-columns: auto 1fr;
+
     width: 100%;
     height: 100%;
     margin: auto;
@@ -32,40 +34,41 @@ html,body
 
 #screen_3_title{grid-area: title;}
 
-#back{grid-area: back;align-self: right;}
+#back{grid-area: back;align-self: right;width: auto;height: 22px;padding-right: 20%;}
 
-#date{grid-area: date;}
+#date{grid-area: date;width: auto;height: 18px;}
 
-#forward{grid-area: forward;align-self: left;}
+#forward{grid-area: forward;align-self: left;width: auto;height: 22px;}
 
 #label_region_1{grid-area: label1;align-self:left;}
-#input_region_1{grid-area: input1;}
+#input_region_1{grid-area: input1;width: 30px;height: 18px;}
 
 #label_region_2{grid-area: label2;align-self:left;}
-#input_region_2{grid-area: input2;}
+#input_region_2{grid-area: input2;width: 30px;height: 18px;}
 
 #label_region_3{grid-area: label3;align-self:left;}
-#input_region_3{grid-area: input3;}
+#input_region_3{grid-area: input3;width: 30px;height: 18px;}
 
 #label_region_4{grid-area: label4;align-self:left;}
-#input_region_4{grid-area: input4;}
+#input_region_4{grid-area: input4;width: 30px;height: 18px;}
 
 #label_region_5{grid-area: label5;align-self:left;}
-#input_region_5{grid-area: input5;}
+#input_region_5{grid-area: input5;width: 30px;height: 18px;}
 
 #label_region_6{grid-area: label6;align-self:left;}
-#input_region_6{grid-area: input6;}
+#input_region_6{grid-area: input6;width: 30px;height: 18px;}
 
 #label_region_7{grid-area: label7;align-self:left;}
-#input_region_7{grid-area: input7;}
+#input_region_7{grid-area: input7;width: 30px;height: 18px;}
 
 #label_region_8{grid-area: label8;align-self:left;}
-#input_region_8{grid-area: input8;}
+#input_region_8{grid-area: input8;width: 30px;height: 18px;}
 
 #label_region_9{grid-area: label9;align-self:left;}
-#input_region_9{grid-area: input9;}
+#input_region_9{grid-area: input9;width: 30px;height: 18px;}
 
 #label_region_10{grid-area: label10;align-self:left;}
-#input_region_10{grid-area: input10;}
+#input_region_10{grid-area: input10;width: 30px;height: 18px;}
 
-#enter_button{grid-area: enter_button;align-self:left;}
+#enter_button{grid-area: enter_button;align-self:left;width: auto;height: 22px;}
+
