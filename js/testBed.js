@@ -26,23 +26,25 @@ for(let i=0; i<neededHospitals; i++ ){
     hospitalDict["hospital"+i] = tempHospital
     hospitalList.push(tempHospital)
 }
-console.log(hospitalList.length, "this is the length")
 
-
-console.log(hospitalDict)
 function createHospitalTable(listOfHospitals){
     const table = document.createElement('table');
+    firstRow = table.insertRow()
+    firstRow.insertCell(0).appendChild(document.createTextNode('Name'));
+    firstRow.insertCell(1).appendChild(document.createTextNode('Region'));
+    firstRow.insertCell(2).appendChild(document.createTextNode('Max. capacity'));
+    firstRow.insertCell(3).appendChild(document.createTextNode('Current capacity'));
     for(let i = 0; i < listOfHospitals.length; i++){
-        console.log('test i', listOfHospitals[i])
         const tr = table.insertRow();
-        for(let j=0; j<4; j++){
-            console.log('test j')
-            const td = tr.insertCell();
-            td.appendChild(document.createTextNode(`'Cell I${i}/J${j}' ${listOfHospitals[i].name}`));
-        }
+        tr.insertCell(0).appendChild(document.createTextNode(`'name: ' ${listOfHospitals[i].name}`));
+        tr.insertCell(1).appendChild(document.createTextNode(`'region: ' ${listOfHospitals[i].region}`));
+        tr.insertCell(2).appendChild(document.createTextNode(`'max capacity: ' ${listOfHospitals[i].maxAmountBeds}`));
+        tr.insertCell(3).appendChild(document.createTextNode(`'current capacity ' ${listOfHospitals[i].maxAmountBeds-listOfHospitals[i].listOfbeds.length}`));
     }
-
+    document.body.appendChild(table)
 }
+let keys = Object.keys(hospitalList[0])
+console.log('this should be a list of keys: ', keys)
 createHospitalTable(hospitalList)
 let newHospital = new Hospital('First Light Hospital', 'Region1', 16, [])
 
@@ -50,4 +52,3 @@ neededBeds = 12
 for(let i=0; i < neededBeds; i++){
     newHospital.listOfbeds.push(new Bed())
 }
-console.log(newHospital.listOfbeds)

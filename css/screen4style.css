@@ -8,6 +8,7 @@ table{
 td{
     /* border-left: 1px solid salmon;
     border-right: 1px solid salmon; */
+    border: 5px solid turquoise;
 }
 h2{
     text-align: center;
