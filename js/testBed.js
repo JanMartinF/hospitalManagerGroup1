@@ -17,12 +17,7 @@ class Hospital {
         this.maxAmountBeds = maxAmountBeds;
         this.listOfbeds = listOfbeds;
     }
-    get numberOfBeds() {
-        return this.showBedAmount();
-    }
-    showBedAmount(){
-        return this.amountBeds
-    }
+
 }
 
 let amountHospitals = 12
