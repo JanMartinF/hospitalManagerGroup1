@@ -1,3 +1,30 @@
+var hospitalList = []
+if(JSON.parse(localStorage.getItem("hospitalList") || "[]")){
+    hospitalList = JSON.parse(localStorage.getItem("hospitalList") || "[]");
+    createHospitalTable();
+}
+
+window.onload = function () {
+    if (localStorage.getItem("hasCodeRunBefore") === null) {
+        function createHospitals(amountHospitals){
+            let neededHospitals = amountHospitals;
+            let hospitalDict = {};
+            let hospitalList = [];
+            for(let i=0; i<neededHospitals; i++ ){
+                let randomizedAmountBeds = Math.floor(Math.random()*8)+40;
+                tempHospital = new Hospital('sampleName'+i, 'regionNbr'+i, randomizedAmountBeds, []);
+                hospitalDict["hospital"+i] = tempHospital;
+                hospitalList.push(tempHospital);
+            }
+            return hospitalList;
+        }
+        hospitalList = createHospitals(6);
+        populateHospitalsWithBeds();
+        localStorage.setItem('hospitalList', JSON.stringify(hospitalList))
+        createHospitalTable();
+    }
+}
+
 let currentDay = new Date().getTime()
 var patientsToBeMoved = 0
 
@@ -10,7 +37,6 @@ class Bed {
         this.belongsTo = belongsTo;
         this.maxDurationHospitalization = 7;
         this.occupiedUntil = this.randomizeOccupationDuration(currentDay);
-
     }
     pushToHospital(desstinationHospital){
         desstinationHospital.listOfbeds.push(this)
@@ -23,9 +49,6 @@ class Bed {
         today = today+(Math.floor(Math.random()*this.maxDurationHospitalization)+1)*millisecInADay
         return today
     }
-    skipTime(days=1){
-
-    }
 }
 class Hospital {
     constructor(name = 'defaultName', region='defaultRegion', maxAmountBeds = 40, listOfbeds = []){
@@ -35,19 +58,19 @@ class Hospital {
         this.listOfbeds = listOfbeds;
     }
 }
-function createHospitals(amountHospitals){
-    let neededHospitals = amountHospitals;
-    let hospitalDict = {};
-    let hospitalList = [];
-    for(let i=0; i<neededHospitals; i++ ){
-        let randomizedAmountBeds = Math.floor(Math.random()*8)+40;
-        tempHospital = new Hospital('sampleName'+i, 'regionNbr'+i, randomizedAmountBeds, []);
-        hospitalDict["hospital"+i] = tempHospital;
-        hospitalList.push(tempHospital);
-    }
-    return hospitalList;
+function changeToPage1(){
+    window.location.href = 'screen1.html'
 }
-var hospitalList = createHospitals(6);
+function changeToPage2(){
+    window.location.href = 'screen2.html'
+}
+function changeToPage3(){
+    window.location.href = 'screen3.html'
+}
+function changeToPage4(){
+    window.location.href = 'screen4.html'
+}
+
 
 function populateHospitalsWithBeds(){
     for(let i=0; i<hospitalList.length; i++){
@@ -56,6 +79,7 @@ function populateHospitalsWithBeds(){
             hospitalList[i].listOfbeds.push(new Bed('defaulName', true, currentDay, 'defaultHospital'));
         }
     }    
+    localStorage.setItem('hospitalList', JSON.stringify(hospitalList))
     createHospitalTable(hospitalList);
 }
 
@@ -75,7 +99,7 @@ function movePatient(id){
         }
     }
 }
-function createHospitalTable(listOfHospitals){
+function createHospitalTable(listOfHospitals = hospitalList){
     document.getElementById('testDiv').innerHTML = "";
     const table = document.createElement('table');
     firstRow = table.insertRow();
@@ -103,9 +127,8 @@ function createHospitalTable(listOfHospitals){
         }
     }
     document.getElementById('testDiv').appendChild(table);
+    console.log(JSON.parse(localStorage.getItem("hospitalList") || "[]"))
 }
-
-createHospitalTable(hospitalList);
 
 function updateAllBeds(){
     for(let i=0; i<hospitalList.length; i++){
@@ -122,6 +145,7 @@ function skipADay(){
     currentDay = currentDay + aDayInMillisec;
     console.log('next day: ', new Date(currentDay));
     updateAllBeds();
+    localStorage.setItem('hospitalList', JSON.stringify(hospitalList))
     createHospitalTable(hospitalList);
 }
 
