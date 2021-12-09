@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Übersicht und Detailinfos</title>
+
+    
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    
+      <div class="container" id="screen1menu">
+        <h1>Übersicht und Detailinfos</h1>
+
+        <div id="flex1" class="flex-container">
+          <input type="button" value="Screen1" onclick="change_page1()"/>
+          <input type="button" value="Screen2" onclick="change_page2()"/>
+          <input type="button" value="Screen3" onclick="change_page3()"/>
+      </div>
+      
+      <div id="region1box">
+        
+      </div>
+      <br>
+      <div id="region2box">
+       
+      </div>
+      <div id="region3box">
+
+      </div>
+  </div>
+
+  <div id="demoBox">
+    <p id="akhName">Name des AKHs</p>
+  </div>
+
+  <div id="infobox">
+    <span>Betten gesamt:</span>
+    <span id="bettenGesamt">Anzahl</span>
+    <br>
+    <span>Betten belegt:</span>
+    <span id="bettenBelegt">Anzahl</span>
+    <br>
+    <span>Auslastung:</span>
+    <span id="auslastung">%</span>
+    <br>
+
+  </div>
+
+  <button id="reset" value="Neustarten" onclick="updateReset()"></button>
+    <!-- javascript -->
+    <script src="app.js"></script>
+  </body>
+</html>
