@@ -8,13 +8,14 @@
 
   <!-- styles -->
   <link rel="stylesheet" href="styles.css" />
+  
 </head>
 
 <body>
   <div class="container" id="screen3menu">
     <h1>Eingabe neuer Werte</h1>
     <div id="flex1" class="flex-container">
-      <input type="button" value="Screen1" onclick="change_page1()" />
+      <input type="button" value="Screen1" onclick="change_pageindex()" />
       <input type="button" value="Screen2" onclick="change_page2()" />
       <input type="button" value="Screen3" onclick="change_page3()" />
     </div>
@@ -28,24 +29,20 @@
   </div>
   <div id="newcases">
 
-      <p id="statusB1">Bett 1(frei)</p>
-     <input type="text" id="Bett1input" placeholder="0 = frei / 1 = belegen" />
-      <br>
-      <p id="statusB2">Bett 2(frei)</p>
-      <input type="text" id="Bett2input" placeholder="0 = frei / 1 = belegen" />
-      <br>
-      <p id="statusB3">Bett 3(frei)</p>
-      <input type="text" id="Bett3input" placeholder="0 = frei / 1 = belegen" />
+      <p id="free_beds">Freie Betten</p>
+      <input type="text" id="filled_beds" placeholder="Anzahl der zu belgenden Betten angeben." />
       <br>
       <br>
-      <input type="submit" value="Aktualisieren" onclick="bettenUpdate(), change_page1()" />
- 
+      <label id="remaining_beds_label" >waiting ....</label>
+      <br>
+      <input type="submit" value="Betten belegen" onclick="fill_beds()"/>
+      
   </div>
+  
 
 
-
-  <!-- javascript -->
-  <script src="app.js"></script>
+  
 </body>
-
+<!-- javascript -->
+<script src="app.js"></script>
 </html>
