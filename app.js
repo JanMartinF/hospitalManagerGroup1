@@ -44,7 +44,7 @@ function fill_beds(){
     console.log(remaining_beds);
 }
 
-
+//test
 let TestName = listOfAllHospitals[0]
-
+//Testfix
 console.log(TestName.name) 
